@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-
 
 @Entity
 @Table(name="heroes")
@@ -21,11 +22,18 @@ public class Hero {
     @NotBlank(message="Name is mandatory")
     private String name;
 
+    //@NotBlank(message="Poder is mandatory")
     @OneToMany(cascade= CascadeType.PERSIST)
     private Set<Poderes> poder;
 
     public Hero() { 
+        this.name = "name";
+        this.poder = new HashSet<Poderes>();
+    }
 
+    public Hero(String name, Set<Poderes> poder) {
+        this.name = name;
+        this.poder = new HashSet<Poderes>(poder);
     }
 
     public Hero(String name) {
@@ -48,12 +56,12 @@ public class Hero {
         this.name = name;
     }
 
-    public @NotBlank(message = "Poder is mandatory") Set<Poderes> getPoder() {
+    public Set<Poderes> getPoder() {
         return this.poder;
     }
 
-    public void setPoder(@NotBlank(message = "Poder is mandatory") Set<Poderes> poder) {
-        this.poder = poder;
+    public void setPoder (ArrayList<Poderes> poder) {
+        this.poder.addAll(poder);
     }
 
     @Override

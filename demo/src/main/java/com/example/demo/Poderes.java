@@ -20,7 +20,7 @@ public class Poderes {
     @NotBlank(message="Tipo is mandatory")
     private String tipo;
 
-    @NotBlank(message = "Valor is mandatory")
+    //@NotBlank(message = "Valor is mandatory")
     private int valor;
 
     public Poderes() {
