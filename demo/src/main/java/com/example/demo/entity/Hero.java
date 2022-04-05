@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.entity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -68,5 +68,6 @@ public class Hero {
     public String toString() {
         return "id=" + id + ", nombre" + this.name + ", poder=" + poder;
     }
+
 
 }

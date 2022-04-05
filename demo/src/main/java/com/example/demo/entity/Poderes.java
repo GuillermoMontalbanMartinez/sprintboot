@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +20,6 @@ public class Poderes {
     @NotBlank(message="Tipo is mandatory")
     private String tipo;
 
-    //@NotBlank(message = "Valor is mandatory")
     private int valor;
 
     public Poderes() {
