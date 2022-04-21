@@ -39,5 +39,10 @@ public class HeroController {
     void delete(@RequestParam(required = true) Long id) {
         repository.delete(repository.findById(id).get());
     }
+
+    @GetMapping(path = "/{name}")
+    public List<Hero> findHeroByName(@PathVariable("name") String name) {
+        return repository.findByName(name);
+    }
     
 }
